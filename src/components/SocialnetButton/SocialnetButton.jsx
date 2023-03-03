@@ -1,10 +1,13 @@
 import { memo } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const SocialnetButton = ({ textButton, onPress }) => {
+const SocialnetButton = ({ textButton, onPress, bigButton }) => {
   return (
-    <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+    <View style={bigButton ? {} : styles.buttonContainer}>
+      <TouchableOpacity
+        style={[styles.shadow, styles.button]}
+        onPress={onPress}
+      >
         <Text style={styles.textButton}>{textButton}</Text>
       </TouchableOpacity>
     </View>
@@ -14,6 +17,10 @@ const SocialnetButton = ({ textButton, onPress }) => {
 export default memo(SocialnetButton);
 
 const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: "#000",
+    elevation: 2,
+  },
   buttonContainer: {
     display: "flex",
     alignItems: "center",
