@@ -25,6 +25,7 @@ const Navigator = () => {
                 key={screen.id}
                 name={screen.name}
                 component={screen.component}
+                options={screen.options}
               />
             );
           })
