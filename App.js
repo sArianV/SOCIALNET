@@ -1,10 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Navigator from './src/navigation/Navigator';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'ProximaNova': require("./assets/fonts/proxima_nova.ttf"),
+    "Simpsons": require("./assets/fonts/simpsonfont.ttf"),
+  })
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
+    <View style={styles.container} onLayout={onLayoutRootView}>
       <Navigator />
     </View>
   );

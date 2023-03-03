@@ -21,7 +21,7 @@ const Navigator = () => {
         {
           screens.map((screen) => {
             return (
-              <Stack.Screen
+              <Stack.Screen                
                 key={screen.id}
                 name={screen.name}
                 component={screen.component}
