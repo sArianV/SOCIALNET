@@ -6,13 +6,13 @@ import NavbarLogoSmall from "../../../assets/svg/NavbarLogoSmall";
 import Input from "../../components/Input/Input";
 import SocialnetButton from "../../components/SocialnetButton/SocialnetButton";
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   const [text, onChangeText] = useState("");
   const [password, onChangePassword] = useState("");
-
+  const [showPassword, setShowPassword] = useState(false);
   const handleSignInButton = () => {
     navigation.navigate("HomeScreen");
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -21,17 +21,16 @@ const LoginScreen = ({navigation}) => {
         <Text style={styles.smallFont}>SIGN IN WITH YOUR EMAIL ADDRESS</Text>
       </View>
       <Input onChange={onChangeText} value={text} placeholder="Email" />
-      <View style={styles.passwordBox}>
-        <Input
-          onChange={onChangePassword}
-          value={password}
-          placeholder="Password"
-          secureTextEntry
-        />
-        <Pressable style={styles.passwordIcon}>
-          <HiddenPasswordIcon />
-        </Pressable>
-      </View>
+      <Input
+        onChange={onChangePassword}
+        value={password}
+        placeholder="Password"
+        rightIcon={HiddenPasswordIcon}
+        onPressRightIcon={() => {
+          setShowPassword((prevValue) => !prevValue);
+        }}
+        secureTextEntry={!showPassword}
+      />
       <SocialnetButton
         textButton="Sign in"
         onPress={handleSignInButton}
@@ -68,15 +67,5 @@ const styles = StyleSheet.create({
   subtitle: {
     marginTop: 14,
     marginBottom: 4,
-  },
-  passwordBox: {
-    width: "100%",
-    position: "relative",
-  },
-  passwordIcon: {
-    position: "absolute",
-    right: 0,
-    marginVertical: 15,
-    marginRight: 18,
   },
 });
