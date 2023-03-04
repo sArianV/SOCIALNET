@@ -19,7 +19,7 @@ export default memo(SocialnetButton);
 const styles = StyleSheet.create({
   shadow: {
     shadowColor: "#000",
-    elevation: 2,
+    elevation: 3,
   },
   buttonContainer: {
     display: "flex",
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#ED572F",
     borderRadius: 10,
-    paddingVertical: 13,
+    paddingVertical: 10,
     paddingHorizontal: 40,
   },
   textButton: {

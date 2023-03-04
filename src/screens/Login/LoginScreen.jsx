@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import HiddenPasswordIcon from "../../../assets/svg/icons/HiddenPasswordIcon";
-import NavbarLogoMedium from "../../../assets/svg/NavbarLogoMedium";
-import NavbarLogoSmall from "../../../assets/svg/NavbarLogoSmall";
+import ExternalLogin from "../../components/ExternalLogin/ExternalLogin";
 import Input from "../../components/Input/Input";
 import SocialnetButton from "../../components/SocialnetButton/SocialnetButton";
 
@@ -10,6 +14,7 @@ const LoginScreen = ({ navigation }) => {
   const [text, onChangeText] = useState("");
   const [password, onChangePassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
   const handleSignInButton = () => {
     navigation.navigate("HomeScreen");
   };
@@ -17,9 +22,9 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.bigFont}>Sign in</Text>
-      <View style={styles.subtitle}>
-        <Text style={styles.smallFont}>SIGN IN WITH YOUR EMAIL ADDRESS</Text>
-      </View>
+      <Text style={[styles.smallFont, styles.subtitle]}>
+        SIGN IN WITH YOUR EMAIL ADDRESS
+      </Text>
       <Input onChange={onChangeText} value={text} placeholder="Email" />
       <Input
         onChange={onChangePassword}
@@ -36,8 +41,18 @@ const LoginScreen = ({ navigation }) => {
         onPress={handleSignInButton}
         bigButton
       />
-      <NavbarLogoMedium />
-      <NavbarLogoSmall />
+      <Text style={[styles.smallFont, styles.externalLoginTitle]}>
+        CONTINUE WITH A SOCIAL ACCOUNT
+      </Text>
+      <ExternalLogin />
+      <TouchableOpacity
+        style={styles.registerTextContainer}
+        onPress={() => console.log("sign up")}
+      >
+        <Text style={[styles.smallFont, styles.registerText]}>
+          Don’t have an account? Sign up
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -63,9 +78,25 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontSize: 13,
     fontWeight: "400",
+    color: "#555555",
   },
   subtitle: {
     marginTop: 14,
     marginBottom: 4,
+  },
+  externalLoginTitle: {
+    marginTop: 28,
+    marginBottom: 8,
+  },
+  registerTextContainer: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    paddingTop: 224,
+  },
+  registerText: {
+    color: "#ED572F",
+    fontWeight: "700",
+    fontSize: 17,
   },
 });

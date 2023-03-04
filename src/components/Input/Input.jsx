@@ -31,7 +31,7 @@ const Input = ({
       />
       {rightIcon && (
         <TouchableOpacity
-          style={styles.passwordIcon}
+          style={styles.iconContainer}
           onPress={onPressRightIcon ? onPressRightIcon : () => {}}
         >
           <RigthIcon />
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#DADADA",
     borderRadius: 8,
-    paddingVertical: 8,
+    paddingVertical: 6,
     paddingHorizontal: 16,
   },
   inputWithIcon: {
@@ -58,10 +58,11 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "relative",
   },
-  passwordIcon: {
+  iconContainer: {
     position: "absolute",
     right: 0,
-    marginVertical: 15,
+    height: "100%",
+    justifyContent: "center",
     marginRight: 18,
   },
 });
