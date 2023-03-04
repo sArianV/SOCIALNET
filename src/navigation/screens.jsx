@@ -1,16 +1,10 @@
 import { Text, View } from "react-native";
+import Navbar from "../components/Navbar/Navbar";
 import NavbarBigLogo from "../components/Navbar/NavbarBigLogo";
 import withDissableBackHandler from "../hocs/withDissableBackHandler";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import LoginScreen from "../screens/Login/LoginScreen";
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
-
-const HomeScreen = () => {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-};
 
 export const screens = [
   {
@@ -28,8 +22,12 @@ export const screens = [
     name: "HomeScreen",
     component: HomeScreen,
     options: {
+      headerBackVisible: false,
       statusBarStyle: "dark",
       statusBarTranslucent: false,
+      headerTitle: () => <Navbar />,
+      headerShadowVisible: false,
+      
     },
   },
   {
