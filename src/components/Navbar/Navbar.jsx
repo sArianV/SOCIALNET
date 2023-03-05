@@ -5,18 +5,14 @@ import { NAVBAR_ICONS } from "./NavbarIcons";
 const Navbar = () => {
   return (
     <View style={styles.container}>
-        <View style={styles.logo}>
-            <NavbarLogoSmall />
-        </View>
-        <View style={styles.buttons}>
-            {
-                NAVBAR_ICONS.map(({ id, component: Icon}) => {
-                    return (
-                        <Icon key={id} />
-                    )
-                })
-            }
-        </View>
+      <View style={styles.logo}>
+        <NavbarLogoSmall />
+      </View>
+      <View style={styles.buttons}>
+        {NAVBAR_ICONS.map(({ id, component: Icon }) => {
+          return <Icon key={id} />;
+        })}
+      </View>
     </View>
   );
 };
@@ -43,5 +39,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     gap: 26,
-  }
+  },
 });

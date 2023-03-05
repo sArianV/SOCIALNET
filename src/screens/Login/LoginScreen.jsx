@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -20,40 +21,42 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.bigFont}>Sign in</Text>
-      <Text style={[styles.smallFont, styles.subtitle]}>
-        SIGN IN WITH YOUR EMAIL ADDRESS
-      </Text>
-      <Input onChange={onChangeText} value={text} placeholder="Email" />
-      <Input
-        onChange={onChangePassword}
-        value={password}
-        placeholder="Password"
-        rightIcon={HiddenPasswordIcon}
-        onPressRightIcon={() => {
-          setShowPassword((prevValue) => !prevValue);
-        }}
-        secureTextEntry={!showPassword}
-      />
-      <SocialnetButton
-        textButton="Sign in"
-        onPress={handleSignInButton}
-        bigButton
-      />
-      <Text style={[styles.smallFont, styles.externalLoginTitle]}>
-        CONTINUE WITH A SOCIAL ACCOUNT
-      </Text>
-      <ExternalLogin />
-      <TouchableOpacity
-        style={styles.registerTextContainer}
-        onPress={() => console.log("sign up")}
-      >
-        <Text style={[styles.smallFont, styles.registerText]}>
-          Don’t have an account? Sign up
+    <ScrollView flex={1}>
+      <View style={styles.container}>
+        <Text style={styles.bigFont}>Sign in</Text>
+        <Text style={[styles.smallFont, styles.subtitle]}>
+          SIGN IN WITH YOUR EMAIL ADDRESS
         </Text>
-      </TouchableOpacity>
-    </View>
+        <Input onChange={onChangeText} value={text} placeholder="Email" />
+        <Input
+          onChange={onChangePassword}
+          value={password}
+          placeholder="Password"
+          rightIcon={HiddenPasswordIcon}
+          onPressRightIcon={() => {
+            setShowPassword((prevValue) => !prevValue);
+          }}
+          secureTextEntry={!showPassword}
+        />
+        <SocialnetButton
+          textButton="Sign in"
+          onPress={handleSignInButton}
+          bigButton
+        />
+        <Text style={[styles.smallFont, styles.externalLoginTitle]}>
+          CONTINUE WITH A SOCIAL ACCOUNT
+        </Text>
+        <ExternalLogin />
+        <TouchableOpacity
+          style={styles.registerTextContainer}
+          onPress={() => console.log("sign up")}
+        >
+          <Text style={[styles.smallFont, styles.registerText]}>
+            Don’t have an account? Sign up
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
