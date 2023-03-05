@@ -21,7 +21,7 @@ const HomeCard = ({ title, description, image, links }) => {
       {loading ? (
         <SkeletonLoader.Container style={styles.content}>
           <SkeletonLoader.Item
-            style={{ width: 80, height: 24, ...styles.rounded }}
+            style={{ width: 80, height: 24, marginBottom: 8, ...styles.rounded }}
           />
           <SkeletonLoader.Item
             style={{ width: "100%", height: 16, ...styles.rounded }}
