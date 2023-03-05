@@ -26,8 +26,7 @@ export const screens = [
       statusBarStyle: "dark",
       statusBarTranslucent: false,
       headerTitle: () => <Navbar />,
-      headerShadowVisible: false,
-      
+      headerShadowVisible: true,      
     },
   },
   {
@@ -39,8 +38,7 @@ export const screens = [
       statusBarStyle: "dark",
       statusBarTranslucent: false,
       headerTitle: () => <NavbarBigLogo />,
-      headerShadowVisible: false,
-      
+      headerShadowVisible: false,      
     },
   },
 ];
