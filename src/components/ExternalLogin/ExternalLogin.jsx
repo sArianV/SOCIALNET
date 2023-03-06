@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexWrap: "wrap",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     rowGap: 12,
     columnGap: 8,
   },

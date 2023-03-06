@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <ScrollView flex={1}>
+    <ScrollView width="100%" height="100%" backgroundColor="white">
       <View style={styles.container}>
         <Text style={styles.bigFont}>Sign in</Text>
         <Text style={[styles.smallFont, styles.subtitle]}>
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: "#fff",
     gap: 12,
+    minHeight: "100%",
   },
   bigFont: {
     fontSize: 20,
